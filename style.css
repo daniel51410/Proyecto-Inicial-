@@ -22,6 +22,7 @@
     --box2-color: var(--complement-color);
     --box3-color: var(--light-color);
     --title-icon-color: #fff;
+    --icons-color:#0A3143;
     
     /* ====== Transition ====== */
     --tran-05: all 0.5s ease;
@@ -41,6 +42,7 @@ body.dark{
     /* dark mode tweaks: keep palette but adjust contrasts */
     --primary-color: var(--dark-color);
     --panel-color: #1e2426;
+    --text-color-table: #2b2b2b;
     --text-color: #dfe6e8;
     --black-light-color: #bfc6c8;
     --border-color: rgba(255,255,255,0.06);
@@ -49,6 +51,7 @@ body.dark{
     --box2-color: #2b2f2e;
     --box3-color: #2b2f2e;
     --title-icon-color: #dfe6e8;
+    --icons-color:#fff;
 }
 /* === Custom Scroll Bar CSS === */
 ::-webkit-scrollbar {
@@ -501,7 +504,7 @@ body.dark .switch:before{
 }
 .stat-delta.positive{color:#2da66f}
 .stat-delta.negative{color:#d64545}
-.stat-icon i{font-size:28px;color:var(--primary-color)}
+.stat-icon i{font-size:28px;color:var(--icons-color)}
 
 .controls-row{
     display:flex;
@@ -584,5 +587,5 @@ body.dark .switch:before{
 body.dark .report-panel{background:#2b2c2d;border-color:rgba(255,255,255,0.04);box-shadow:none}
 body.dark .stat-card{background:#3a3b3c}
 /* In dark mode table text should use the --text-color variable (light text) */
-body.dark .report-table tbody td{color:var(--text-color)}
+body.dark .report-table tbody td{color:var(--text-color-table)}
 .status-filter select{background:transparent}
