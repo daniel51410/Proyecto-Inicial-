@@ -26,7 +26,7 @@
     /* ====== Transition ====== */
     --tran-05: all 0.5s ease;
     --tran-03: all 0.3s ease;
-    --tran-03: all 0.2s ease;
+    --tran-02: all 0.2s ease;
 }
 
 body{
@@ -102,22 +102,7 @@ nav.close{
 
 /* show overlay when sidebar is open (applies to all screen sizes) */
 nav:not(.close) ~ #sidebar-overlay{ display: block; opacity: 1; }
-/* Botón de cerrar dentro del sidebar */
-.close-btn {
-  background: none;
-  border: none;
-  color: var(--text-color, #333);
-  font-size: 1.5rem;
-  cursor: pointer;
-  margin-left: auto;
-  display: none; /* se muestra solo en móviles */
-}
-
-@media (max-width: 768px) {
-  .close-btn {
-    display: block;
-  }
-}
+/* Nota: estilos del botón de cerrar se definen más abajo y se muestran solo cuando el sidebar está abierto. */
 
 /* overlay visibility for small screens is handled in the media query below */
 nav .logo-name{
@@ -598,5 +583,6 @@ body.dark .switch:before{
 
 body.dark .report-panel{background:#2b2c2d;border-color:rgba(255,255,255,0.04);box-shadow:none}
 body.dark .stat-card{background:#3a3b3c}
-body.dark .report-table tbody td{color:#2b2c2d}
+/* In dark mode table text should use the --text-color variable (light text) */
+body.dark .report-table tbody td{color:var(--text-color)}
 .status-filter select{background:transparent}

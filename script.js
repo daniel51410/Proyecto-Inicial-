@@ -4,23 +4,25 @@ const sidebar = body.querySelector("nav");
 const sidebarToggle = body.querySelector(".sidebar-toggle");
 
 let getMode = localStorage.getItem("mode");
-if(getMode && getMode ==="dark"){
-    body.classList.toggle("dark");
+if (getMode === "dark") {
+    body.classList.add("dark");
 }
 
 let getStatus = localStorage.getItem("status");
-if(getStatus && getStatus ==="close"){
-    sidebar.classList.toggle("close");
+if (getStatus === "close") {
+    sidebar.classList.add("close");
 }
 
-modeToggle.addEventListener("click", () =>{
-    body.classList.toggle("dark");
-    if(body.classList.contains("dark")){
-        localStorage.setItem("mode", "dark");
-    }else{
-        localStorage.setItem("mode", "light");
-    }
-});
+if (modeToggle) {
+    modeToggle.addEventListener("click", () => {
+        body.classList.toggle("dark");
+        if (body.classList.contains("dark")) {
+            localStorage.setItem("mode", "dark");
+        } else {
+            localStorage.setItem("mode", "light");
+        }
+    });
+}
 
 // Hamburger / sidebar toggle
 function toggleSidebar(){
@@ -43,16 +45,16 @@ function toggleSidebar(){
     }
 }
 
-if(sidebarToggle){
+if (sidebarToggle) {
     // Make the icon keyboard-accessible
-    sidebarToggle.setAttribute('role','button');
-    sidebarToggle.setAttribute('tabindex','0');
+    sidebarToggle.setAttribute('role', 'button');
+    sidebarToggle.setAttribute('tabindex', '0');
     // Accessibility: point to the sidebar and reflect expanded state
-    sidebarToggle.setAttribute('aria-controls','sidebar');
-    sidebarToggle.setAttribute('aria-expanded', sidebar && !sidebar.classList.contains('close'));
+    sidebarToggle.setAttribute('aria-controls', 'sidebar');
+    sidebarToggle.setAttribute('aria-expanded', (!sidebar.classList.contains('close')).toString());
     sidebarToggle.addEventListener('click', toggleSidebar);
     sidebarToggle.addEventListener('keydown', (e) => {
-        if(e.key === 'Enter' || e.key === ' '){
+        if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault();
             toggleSidebar();
         }
@@ -80,11 +82,11 @@ if(overlay){
 }
 
 // Close button inside sidebar (support both spellings just in case)
-const closeSidebarBtn = document.getElementById('close-siderbar-btn') || document.getElementById('close-sidebar-btn');
-if(closeSidebarBtn){
+const closeSidebarBtn = document.getElementById('close-sidebar-btn');
+if (closeSidebarBtn) {
     closeSidebarBtn.addEventListener('click', (e) => {
         e.stopPropagation();
-        if(!sidebar.classList.contains('close')) toggleSidebar();
+        if (!sidebar.classList.contains('close')) toggleSidebar();
     });
 }
 
