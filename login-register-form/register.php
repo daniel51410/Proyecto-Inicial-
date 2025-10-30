@@ -58,7 +58,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // En register.php
         try {
-            // ... (tu código de INSERT) ...
+
+            $sql_insert = "INSERT INTO usuarios (nombre, apellidos, telefono, password) 
+                        VALUES (?, ?, ?, ?)";
+
+            $stmt_insert = $pdo->prepare($sql_insert);
             $stmt_insert->execute([$nombre, $apellido, $telefono, $contrasena_hash]);
 
             // ¡ESTA ES LA LÓGICA CORRECTA!
