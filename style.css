@@ -525,11 +525,17 @@ body.dark .switch:before{
     padding: 9px 12px;
     border-radius:8px;
     font-size:14px;
-    color:var(--text-color);
+    color:var( --dark-color);
     cursor:pointer;
 }
 .status-filter select:focus{outline:2px solid rgba(46,89,255,0.18)}
-.report-search{max-width:520px;width:100%;}
+.report-search{max-width:520px;width:100%;align-items:center;position:relative;display:flex;}
+.report-search i{
+    position:absolute;
+    left:16px;
+    font-size:20px;
+    color:var(--black-light-color);
+}
 .report-search input{padding-left:44px}
 .export-btn{
     background: var(--primary-color);
@@ -588,4 +594,4 @@ body.dark .report-panel{background:#2b2c2d;border-color:rgba(255,255,255,0.04);b
 body.dark .stat-card{background:#3a3b3c}
 /* In dark mode table text should use the --text-color variable (light text) */
 body.dark .report-table tbody td{color:var(--text-color-table)}
-.status-filter select{background:transparent}
+.status-filter select{background:--bs-body-bg}
