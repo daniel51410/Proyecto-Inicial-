@@ -28,19 +28,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['user_nombre'] = $user['nombre'];
             
-            if (!empty($_POST['recuerdame'])) {
-            // Si el checkbox "recuerdame" fue marcado...
-
-                // Creamos una cookie que guarde el ID del usuario
-                $cookie_name = "user_id_recuerdame";
-                $cookie_value = $user['id'];
-                // La cookie expirará en 30 días (86400 segundos = 1 día)
-                $expiracion = time() + (86400 * 30);
-
-                setcookie($cookie_name, $cookie_value, $expiracion, "/"); 
-            }
-
-
             // Redirigir al dashboard
             header('Location: ../index.html');
             exit;
